@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    background-color: #07050e;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* Glassmorphism utility */
+.glass-nav {
+  background: rgba(15, 10, 28, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35), 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.purple-gradient-btn {
+  background: linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6b21a8 100%);
+  box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+  transition: all 0.3s ease;
+}
+
+.purple-gradient-btn:hover {
+  background: linear-gradient(135deg, #c084fc 0%, #9333ea 50%, #7e22ce 100%);
+  box-shadow: 0 6px 28px rgba(168, 85, 247, 0.6);
+  transform: translateY(-1px);
+}
+
+.purple-outline-btn {
+  background: rgba(18, 12, 33, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.purple-outline-btn:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  background: rgba(30, 20, 52, 0.95);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+  transform: translateY(-1px);
+}
+
+.social-icon-btn {
+  background: rgba(25, 18, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icon-btn:hover {
+  background: rgba(168, 85, 247, 0.25);
+  border-color: rgba(192, 132, 252, 0.7);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 5s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #07050e;
+}
+::-webkit-scrollbar-thumb {
+  background: #251644;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7e22ce;
+}
