@@ -3,6 +3,7 @@ import { ArrowRight, Send } from 'lucide-react';
 import heroBg from '../assets/hero-bg.png';
 import shivaImg from '../assets/shiva.png';
 import briefcaseIcon from '../assets/briefcase-clean.png';
+import Reveal from './Reveal';
 
 export default function Hero() {
   const socials = [
@@ -24,15 +25,6 @@ export default function Hero() {
         </svg>
       ),
     },
-    // {
-    //   name: 'X (Twitter)',
-    //   url: 'https://x.com',
-    //   icon: () => (
-    //     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-    //       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-    //     </svg>
-    //   ),
-    // },
     {
       name: 'Upwork',
       url: 'https://www.upwork.com/freelancers/~01c647272fc5d9cb27?mp_source=share',
@@ -66,7 +58,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-purple-500/25 via-purple-900/20 to-purple-950/40 rounded-[36px] sm:rounded-[48px] border border-purple-400/25 backdrop-blur-md shadow-[0_0_50px_rgba(168,85,247,0.3)] -z-10"></div>
       
       {/* Soft Ambient Radial Light Behind Arch */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(216,180,254,0.3),transparent_70%)] rounded-[36px] sm:rounded-[48px] -z-10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(216,180,254,0.3),transparent_70%)] rounded-[36px] sm:rounded-[48px] -z-10 animate-pulse-glow"></div>
       <div className="absolute -inset-4 bg-purple-600/15 rounded-full blur-2xl -z-20"></div>
 
       {/* Shiva Vishwakarma Real Portrait */}
@@ -74,35 +66,12 @@ export default function Hero() {
         <img
           src={shivaImg}
           alt="Shiva Vishwakarma - Software Developer"
-          className="w-auto h-[95%] sm:h-[97%] max-h-none object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] filter contrast-[1.03] transition-transform duration-500 hover:scale-[1.02]"
+          className="w-auto h-[95%] sm:h-[97%] max-h-none object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] filter contrast-[1.03] transition-transform duration-700 ease-out hover:scale-[1.03]"
         />
       </div>
 
-      {/* Floating Glassmorphic "1.5+ Years Experience" Card (Temporarily commented out) */}
-      {/*
-      <div className="absolute -left-3 sm:-left-6 bottom-5 sm:bottom-10 z-20 animate-float-slow">
-        <div className="glass-card bg-white/95 text-gray-900 px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl sm:rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.45)] border border-white/60 flex items-center gap-2 sm:gap-3 backdrop-blur-xl">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-purple-50 flex items-center justify-center p-1 shadow-inner">
-            <img
-              src={briefcaseIcon}
-              alt="Experience Briefcase"
-              className="w-full h-full object-contain"
-            />
-          </div>
-          <div>
-            <h4 className="text-xs sm:text-sm md:text-base font-bold text-gray-900 leading-tight tracking-tight">
-              1.5+ Years
-            </h4>
-            <p className="text-[10px] sm:text-xs text-gray-500 font-medium">
-              Experience
-            </p>
-          </div>
-        </div>
-      </div>
-      */}
-
       {/* Handwritten "Dream Code Build" signature script */}
-      <div className="absolute -right-3 sm:-right-6 top-1/4 sm:top-1/3 z-20 pointer-events-none select-none">
+      <div className="absolute -right-3 sm:-right-6 top-1/4 sm:top-1/3 z-20 pointer-events-none select-none animate-float-slow">
         <div className="font-handwriting text-2xl sm:text-3xl lg:text-4xl text-white/95 leading-[1.1] drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] rotate-[-6deg] tracking-wide">
           <p className="text-white">Dream</p>
           <p className="translate-x-1.5 text-purple-100">Code</p>
@@ -121,7 +90,7 @@ export default function Hero() {
       {/* Background Graphic - Layer 1 */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
         {/* Soft Ambient Radial Lights */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-purple-600/15 rounded-full blur-[120px] sm:blur-[140px]"></div>
+        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-purple-600/15 rounded-full blur-[120px] sm:blur-[140px] animate-pulse-glow"></div>
         <div className="absolute top-1/3 right-10 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-indigo-600/15 rounded-full blur-[140px] sm:blur-[160px]"></div>
 
         {/* Desktop 3D Purple Graphic (Hidden on small mobile to prevent awkward cube crop) */}
@@ -146,18 +115,20 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-4 sm:gap-5 pt-2 sm:pt-4 lg:pt-0">
             
             {/* Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
-              <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-500 shadow-[0_0_10px_#10b981]"></span>
-              </span>
-              <span className="text-[11px] sm:text-xs md:text-sm font-medium text-gray-200 tracking-wide">
-                Available for Opportunities
-              </span>
-            </div>
+            <Reveal animation="fade-down" delay={100} duration={600}>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-500 shadow-[0_0_10px_#10b981]"></span>
+                </span>
+                <span className="text-[11px] sm:text-xs md:text-sm font-medium text-gray-200 tracking-wide">
+                  Available for Opportunities
+                </span>
+              </div>
+            </Reveal>
 
             {/* Main Hero Heading */}
-            <div className="space-y-0.5 sm:space-y-1">
+            <Reveal animation="fade-up" delay={200} duration={700} className="space-y-0.5 sm:space-y-1">
               <h2 className="text-xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight text-white/95">
                 Hello, I'm
               </h2>
@@ -167,69 +138,81 @@ export default function Hero() {
                   Vishwakarma
                 </span>
               </h1>
-            </div>
+            </Reveal>
 
             {/* Subheading / Role */}
-            <div className="flex items-center gap-2.5 sm:gap-3">
-              <span className="text-base sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-200 tracking-wide">
-                Software Developer
-              </span>
-              <div className="h-[2px] w-8 sm:w-16 md:w-24 bg-gradient-to-r from-purple-500 via-fuchsia-400 to-transparent rounded-full"></div>
-            </div>
+            <Reveal animation="fade-up" delay={300} duration={700}>
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <span className="text-base sm:text-xl lg:text-2xl xl:text-3xl font-semibold text-gray-200 tracking-wide">
+                  Software Developer
+                </span>
+                <div className="h-[2px] w-8 sm:w-16 md:w-24 bg-gradient-to-r from-purple-500 via-fuchsia-400 to-transparent rounded-full"></div>
+              </div>
+            </Reveal>
 
             {/* MOBILE ONLY: Portrait Card Displayed Right Here in Natural Flow */}
             <div className="w-full lg:hidden my-2 flex justify-center">
-              <PortraitCard isMobile={true} />
+              <Reveal animation="zoom-in" delay={250} duration={700} className="w-full flex justify-center">
+                <PortraitCard isMobile={true} />
+              </Reveal>
             </div>
 
             {/* Description Paragraph */}
-            <p className="text-xs sm:text-base md:text-lg text-gray-300/85 max-w-xl leading-relaxed font-normal px-2 sm:px-0">
-              Building innovative and scalable web applications with modern technologies to turn ideas into reality.
-            </p>
+            <Reveal animation="fade-up" delay={400} duration={700}>
+              <p className="text-xs sm:text-base md:text-lg text-gray-300/85 max-w-xl leading-relaxed font-normal px-2 sm:px-0">
+                Building innovative and scalable web applications with modern technologies to turn ideas into reality.
+              </p>
+            </Reveal>
 
             {/* Action CTAs */}
-            <div className="flex flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-4 w-full sm:w-auto pt-2">
-              <a
-                href="#projects"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm md:text-base font-semibold text-white purple-gradient-btn group"
-              >
-                <span>Explore My Work</span>
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                  <ArrowRight className="w-3 h-3 text-white" />
-                </div>
-              </a>
+            <Reveal animation="fade-up" delay={500} duration={700}>
+              <div className="flex flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-4 w-full sm:w-auto pt-2">
+                <a
+                  href="#projects"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-8 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm md:text-base font-semibold text-white purple-gradient-btn group cursor-pointer"
+                >
+                  <span>Explore My Work</span>
+                  <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                    <ArrowRight className="w-3 h-3 text-white" />
+                  </div>
+                </a>
 
-              <a
-                href="#contact"
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm md:text-base font-semibold text-white purple-outline-btn group"
-              >
-                <span>Contact Me</span>
-                <Send className="w-3.5 h-3.5 text-purple-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            </div>
+                <a
+                  href="#contact"
+                  className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-full text-xs sm:text-sm md:text-base font-semibold text-white purple-outline-btn group cursor-pointer"
+                >
+                  <span>Contact Me</span>
+                  <Send className="w-3.5 h-3.5 text-purple-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
+            </Reveal>
 
             {/* Social Links Row */}
-            <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 pt-2 sm:pt-3 relative z-20">
-              {socials.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  title={social.name}
-                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-full social-icon-btn flex items-center justify-center text-gray-300 hover:text-white cursor-pointer transition-transform hover:scale-110 active:scale-95"
-                >
-                  <social.icon />
-                </a>
-              ))}
-            </div>
+            <Reveal animation="fade-up" delay={600} duration={700}>
+              <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3 pt-2 sm:pt-3 relative z-20">
+                {socials.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    title={social.name}
+                    className="w-9 h-9 sm:w-11 sm:h-11 rounded-full social-icon-btn flex items-center justify-center text-gray-300 hover:text-white cursor-pointer transition-transform hover:scale-110 active:scale-95"
+                  >
+                    <social.icon />
+                  </a>
+                ))}
+              </div>
+            </Reveal>
 
           </div>
 
           {/* DESKTOP ONLY: Right Column Portrait (Cols 8-12) */}
           <div className="hidden lg:flex lg:col-span-5 relative items-center justify-end">
-            <PortraitCard isMobile={false} />
+            <Reveal animation="zoom-in" delay={300} duration={800} className="w-full">
+              <PortraitCard isMobile={false} />
+            </Reveal>
           </div>
 
         </div>

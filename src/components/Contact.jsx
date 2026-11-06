@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import contactBg from '../assets/contact-bg-full.png';
 import contactSphere from '../assets/contact-sphere.png';
+import Reveal from './Reveal';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -72,7 +73,7 @@ export default function Contact() {
       ></div>
 
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 right-8 w-[450px] h-[450px] bg-purple-200/30 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+      <div className="absolute top-1/4 right-8 w-[450px] h-[450px] bg-purple-200/30 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse-glow"></div>
       <div className="absolute bottom-10 left-1/4 w-[450px] h-[450px] bg-indigo-100/35 rounded-full blur-[130px] pointer-events-none -z-10"></div>
 
       {/* FULL WIDTH WRAPPER across screen */}
@@ -81,7 +82,7 @@ export default function Contact() {
         {/* ============================================================== */}
         {/* DESKTOP BANNER VIEW (lg and up) - Perfect Ribbon Interior */}
         {/* ============================================================== */}
-        <div className="hidden lg:block relative w-full aspect-[1024/370] select-none">
+        <Reveal animation="zoom-in" duration={800} className="hidden lg:block relative w-full aspect-[1024/370] select-none">
           
           {/* Authentic 1024x370 Background Image with 3D Sphere, Flares & Dark Ribbon */}
           <img
@@ -259,152 +260,154 @@ export default function Contact() {
 
           </div>
 
-        </div>
+        </Reveal>
 
         {/* ============================================================== */}
         {/* MOBILE & TABLET VIEW (< lg) - Luxury Stacked Responsive Card */}
         {/* ============================================================== */}
-        <div className="lg:hidden relative rounded-3xl bg-[#090710] border border-purple-500/30 p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,5,30,0.5)] overflow-hidden text-left max-w-2xl mx-auto">
-          
-          {/* Subtle Ambient Glows */}
-          <div className="absolute top-0 right-0 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-pink-600/15 rounded-full blur-3xl pointer-events-none"></div>
-
-          {/* Header with 3D Sphere */}
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
-              <img
-                src={contactSphere}
-                alt=""
-                className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(168,85,247,0.6)]"
-              />
-            </div>
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.06] border border-white/10 mb-1.5">
-                <span className="w-2 h-2 rounded-full bg-[#d946ef] shadow-[0_0_8px_#d946ef]"></span>
-                <span className="text-xs font-medium text-purple-200">Get In Touch</span>
-              </div>
-              <h2 className="text-2xl font-extrabold text-white tracking-tight">
-                Let's Work Together
-              </h2>
-            </div>
-          </div>
-
-          <p className="text-xs sm:text-sm text-gray-300 mb-6 leading-relaxed">
-            Have a project in mind or want to discuss opportunities? Feel free to reach out!
-          </p>
-
-          {/* 3 Contact Info Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+        <Reveal animation="fade-up" duration={800} className="lg:hidden">
+          <div className="relative rounded-3xl bg-[#090710] border border-purple-500/30 p-6 sm:p-8 shadow-[0_20px_50px_rgba(15,5,30,0.5)] overflow-hidden text-left max-w-2xl mx-auto">
             
-            {/* Email */}
-            <a
-              href="mailto:sv575014@gmail.com"
-              className="p-3 rounded-2xl bg-white/[0.03] border border-purple-500/20 flex items-center gap-3 hover:bg-white/[0.06] transition-colors"
-            >
-              <div className="w-9 h-9 rounded-xl bg-purple-500/10 flex items-center justify-center text-[#e879f9]">
-                <Mail className="w-5 h-5" />
-              </div>
-              <div className="overflow-hidden">
-                <div className="text-[10px] text-gray-400 font-semibold uppercase">Email</div>
-                <div className="text-xs font-bold text-white truncate">sv575014@gmail.com</div>
-              </div>
-            </a>
+            {/* Subtle Ambient Glows */}
+            <div className="absolute top-0 right-0 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-pink-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-            {/* Call */}
-            <a
-              href="tel:+918112580707"
-              className="p-3 rounded-2xl bg-white/[0.03] border border-purple-500/20 flex items-center gap-3 hover:bg-white/[0.06] transition-colors"
-            >
-              <div className="w-9 h-9 rounded-xl bg-purple-500/10 flex items-center justify-center text-[#c026d3]">
-                <Phone className="w-5 h-5" />
+            {/* Header with 3D Sphere */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
+                <img
+                  src={contactSphere}
+                  alt=""
+                  className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(168,85,247,0.6)] animate-sphere-float"
+                />
               </div>
               <div>
-                <div className="text-[10px] text-gray-400 font-semibold uppercase">Call</div>
-                <div className="text-xs font-bold text-white">+91 8112580707</div>
-              </div>
-            </a>
-
-            {/* Location */}
-            <div className="p-3 rounded-2xl bg-white/[0.03] border border-purple-500/20 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-purple-500/10 flex items-center justify-center text-[#a855f7]">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="text-[10px] text-gray-400 font-semibold uppercase">Location</div>
-                <div className="text-xs font-bold text-white">Lucknow, India</div>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/[0.06] border border-white/10 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#d946ef] shadow-[0_0_8px_#d946ef]"></span>
+                  <span className="text-xs font-medium text-purple-200">Get In Touch</span>
+                </div>
+                <h2 className="text-2xl font-extrabold text-white tracking-tight">
+                  Let's Work Together
+                </h2>
               </div>
             </div>
+
+            <p className="text-xs sm:text-sm text-gray-300 mb-6 leading-relaxed">
+              Have a project in mind or want to discuss opportunities? Feel free to reach out!
+            </p>
+
+            {/* 3 Contact Info Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+              
+              {/* Email */}
+              <a
+                href="mailto:sv575014@gmail.com"
+                className="p-3 rounded-2xl bg-white/[0.03] border border-purple-500/20 flex items-center gap-3 hover:bg-white/[0.06] transition-colors"
+              >
+                <div className="w-9 h-9 rounded-xl bg-purple-500/10 flex items-center justify-center text-[#e879f9]">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div className="overflow-hidden">
+                  <div className="text-[10px] text-gray-400 font-semibold uppercase">Email</div>
+                  <div className="text-xs font-bold text-white truncate">sv575014@gmail.com</div>
+                </div>
+              </a>
+
+              {/* Call */}
+              <a
+                href="tel:+918112580707"
+                className="p-3 rounded-2xl bg-white/[0.03] border border-purple-500/20 flex items-center gap-3 hover:bg-white/[0.06] transition-colors"
+              >
+                <div className="w-9 h-9 rounded-xl bg-purple-500/10 flex items-center justify-center text-[#c026d3]">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] text-gray-400 font-semibold uppercase">Call</div>
+                  <div className="text-xs font-bold text-white">+91 8112580707</div>
+                </div>
+              </a>
+
+              {/* Location */}
+              <div className="p-3 rounded-2xl bg-white/[0.03] border border-purple-500/20 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-purple-500/10 flex items-center justify-center text-[#a855f7]">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] text-gray-400 font-semibold uppercase">Location</div>
+                  <div className="text-xs font-bold text-white">Lucknow, India</div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  required
+                  disabled={isSubmitting}
+                  className="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 disabled:opacity-60"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your Email"
+                  required
+                  disabled={isSubmitting}
+                  className="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 disabled:opacity-60"
+                />
+              </div>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={3}
+                placeholder="Your Message..."
+                required
+                disabled={isSubmitting}
+                className="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 resize-none disabled:opacity-60"
+              ></textarea>
+
+              {/* Error message */}
+              {errorMessage && (
+                <div className="text-xs text-red-300 bg-red-950/60 border border-red-500/40 rounded-xl p-2.5 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#7e22ce] via-[#9333ea] to-[#c026d3] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(168,85,247,0.55)] hover:shadow-[0_0_30px_rgba(168,85,247,0.85)] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Sending Message...</span>
+                  </span>
+                ) : isSubmitted ? (
+                  <span className="flex items-center gap-1.5 text-green-300">
+                    <CheckCircle2 className="w-4 h-4" /> Message Sent Successfully to Shiva!
+                  </span>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            </form>
 
           </div>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                required
-                disabled={isSubmitting}
-                className="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 disabled:opacity-60"
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                required
-                disabled={isSubmitting}
-                className="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 disabled:opacity-60"
-              />
-            </div>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={3}
-              placeholder="Your Message..."
-              required
-              disabled={isSubmitting}
-              className="w-full bg-black/50 border border-purple-500/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-purple-400 resize-none disabled:opacity-60"
-            ></textarea>
-
-            {/* Error message */}
-            {errorMessage && (
-              <div className="text-xs text-red-300 bg-red-950/60 border border-red-500/40 rounded-xl p-2.5 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
-                <span>{errorMessage}</span>
-              </div>
-            )}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-[#7e22ce] via-[#9333ea] to-[#c026d3] text-white text-xs sm:text-sm font-bold shadow-[0_0_20px_rgba(168,85,247,0.55)] hover:shadow-[0_0_30px_rgba(168,85,247,0.85)] active:scale-95 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-60"
-            >
-              {isSubmitting ? (
-                <span className="flex items-center gap-2">
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Sending Message...</span>
-                </span>
-              ) : isSubmitted ? (
-                <span className="flex items-center gap-1.5 text-green-300">
-                  <CheckCircle2 className="w-4 h-4" /> Message Sent Successfully to Shiva!
-                </span>
-              ) : (
-                <>
-                  <span>Send Message</span>
-                  <ArrowRight className="w-4 h-4" />
-                </>
-              )}
-            </button>
-          </form>
-
-        </div>
+        </Reveal>
 
       </div>
     </section>

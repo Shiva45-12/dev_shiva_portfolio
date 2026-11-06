@@ -1,6 +1,7 @@
 import React from 'react';
 import fullLogo from '../assets/full-logo-tight.png';
 import { ArrowUp, Mail, Phone, MapPin, ChevronRight, Heart } from 'lucide-react';
+import Reveal from './Reveal';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -39,16 +40,6 @@ export default function Footer() {
         </svg>
       ),
     },
-    // {
-    //   name: 'X (Twitter)',
-    //   url: 'https://x.com',
-    //   hoverColor: 'hover:text-white hover:border-white/50 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]',
-    //   icon: (
-    //     <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-    //       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    //     </svg>
-    //   ),
-    // },
     {
       name: 'Instagram',
       url: 'https://www.instagram.com/ram__bhakt_shiva_vishwakarma45?psln=MWF4cGFhMTZ0cWJrdQ==',
@@ -82,119 +73,98 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/[0.08]">
-          
-          {/* Column 1: Brand & Bio (Span 4) */}
-          <div className="lg:col-span-4 flex flex-col items-start gap-4">
+        <Reveal animation="fade-up" duration={750}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/[0.08]">
             
-            {/* Logo */}
-            <a
-              href="#home"
-              className="inline-block group transition-transform duration-300 hover:scale-[1.02]"
-            >
-              <div className="h-11 sm:h-12 flex items-center">
-                <img
-                  src={fullLogo}
-                  alt="Shiva Vishwakarma - Software Developer"
-                  className="h-full w-auto object-contain drop-shadow-[0_0_18px_rgba(168,85,247,0.5)]"
-                />
-              </div>
-            </a>
-
-            {/* Tagline / Bio */}
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed font-normal max-w-sm mt-1">
-              Passionate Software & MERN Stack Developer crafting responsive, robust, and scalable web solutions with modern technologies.
-            </p>
-
-            {/* Availability Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-sm mt-1">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-[11px] sm:text-xs font-semibold text-emerald-300 tracking-wide">
-                Available for New Projects & Roles
-              </span>
-            </div>
-
-          </div>
-
-          {/* Column 2: Quick Links (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col items-start">
-            
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-3.5 rounded-full bg-gradient-to-b from-purple-400 to-purple-600"></span>
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Quick Links
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 w-full">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="group inline-flex items-center gap-1.5 text-xs sm:text-[13px] text-gray-400 hover:text-purple-300 transition-all duration-200 cursor-pointer"
-                >
-                  <ChevronRight className="w-3 h-3 text-purple-400/60 group-hover:text-purple-300 group-hover:translate-x-0.5 transition-transform" />
-                  <span>{link.name}</span>
-                </a>
-              ))}
-            </div>
-
-          </div>
-
-          {/* Column 3: Contact Info (Span 2) */}
-          <div className="lg:col-span-2 flex flex-col items-start">
-            
-            <div className="flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-3.5 rounded-full bg-gradient-to-b from-purple-400 to-purple-600"></span>
-              <h3 className="text-sm font-bold text-white uppercase tracking-wider">
-                Direct Contact
-              </h3>
-            </div>
-
-            <div className="flex flex-col gap-3 text-xs sm:text-[13px]">
+            {/* Column 1: Brand & Bio (Span 4) */}
+            <div className="lg:col-span-4 flex flex-col items-start gap-4">
               
+              {/* Logo */}
               <a
-                href="mailto:sv575014@gmail.com"
-                className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors cursor-pointer"
+                href="#home"
+                className="inline-block group transition-transform duration-300 hover:scale-[1.02]"
               >
-                <div className="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 group-hover:border-purple-400 transition-all">
-                  <Mail className="w-3.5 h-3.5" />
+                <div className="h-11 sm:h-12 flex items-center">
+                  <img
+                    src={fullLogo}
+                    alt="Shiva Vishwakarma - Software Developer"
+                    className="h-full w-auto object-contain drop-shadow-[0_0_18px_rgba(168,85,247,0.5)]"
+                  />
                 </div>
-                <span className="truncate">sv575014@gmail.com</span>
               </a>
 
-              <a
-                href="tel:+918112580707"
-                className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                <div className="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 group-hover:scale-110 group-hover:border-purple-400 transition-all">
-                  <Phone className="w-3.5 h-3.5" />
-                </div>
-                <span>+91 8112580707</span>
-              </a>
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-sm text-left">
+                MERN Stack Developer passionate about crafting performant, scalable, and visually compelling web applications that make an impact.
+              </p>
 
-              <div className="flex items-center gap-2 text-gray-400">
-                <div className="w-7 h-7 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                  <MapPin className="w-3.5 h-3.5" />
-                </div>
-                <span>Lucknow, India</span>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-medium">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Open for freelance & full-time roles</span>
               </div>
 
             </div>
 
-          </div>
-
-          {/* Column 4: Social Media Icons (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col items-start lg:items-end">
-            
-            <div className="w-full lg:text-right">
+            {/* Column 2: Quick Navigation Links (Span 3) */}
+            <div className="lg:col-span-3 flex flex-col items-start text-left">
+              <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                Quick Navigation
+              </h3>
               
-              <div className="flex items-center lg:justify-end gap-2 mb-2">
-                <span className="w-1.5 h-3.5 rounded-full bg-gradient-to-b from-purple-400 to-purple-600 lg:order-2"></span>
-                <h3 className="text-sm font-bold text-white uppercase tracking-wider lg:order-1">
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs sm:text-sm">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-purple-300 transition-colors flex items-center gap-1 group"
+                    >
+                      <ChevronRight className="w-3 h-3 text-purple-500/60 group-hover:text-purple-400 group-hover:translate-x-0.5 transition-transform" />
+                      <span>{link.name}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Column 3: Contact Info (Span 2) */}
+            <div className="lg:col-span-2 flex flex-col items-start text-left">
+              <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                Get In Touch
+              </h3>
+
+              <ul className="space-y-3 text-xs sm:text-sm">
+                <li>
+                  <a
+                    href="mailto:sv575014@gmail.com"
+                    className="text-gray-400 hover:text-purple-300 transition-colors flex items-center gap-2 group"
+                  >
+                    <Mail className="w-4 h-4 text-purple-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <span className="truncate">sv575014@gmail.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+918112580707"
+                    className="text-gray-400 hover:text-purple-300 transition-colors flex items-center gap-2 group"
+                  >
+                    <Phone className="w-4 h-4 text-purple-400 flex-shrink-0 group-hover:scale-110 transition-transform" />
+                    <span>+91 8112580707</span>
+                  </a>
+                </li>
+                <li className="text-gray-400 flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                  <span>Lucknow, India</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: Social Connect (Span 3) */}
+            <div className="lg:col-span-3 flex flex-col items-start lg:items-end text-left lg:text-right">
+              
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-[#d946ef] shadow-[0_0_8px_#d946ef]"></span>
+                <h3 className="text-xs font-bold text-white uppercase tracking-widest">
                   Connect With Me
                 </h3>
               </div>
@@ -203,7 +173,7 @@ export default function Footer() {
                 Follow my work, check open source contributions, or hire me for freelance:
               </p>
 
-              {/* 5 Real Brand Social Icons */}
+              {/* Real Brand Social Icons */}
               <div className="flex flex-wrap items-center gap-2.5 lg:justify-end relative z-20">
                 {socialLinks.map((social) => (
                   <a
@@ -225,8 +195,7 @@ export default function Footer() {
             </div>
 
           </div>
-
-        </div>
+        </Reveal>
 
         {/* Bottom Bar: Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">

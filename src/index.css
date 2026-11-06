@@ -3,6 +3,12 @@
 @layer base {
   * {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
   }
 
   body {
@@ -10,6 +16,7 @@
     background-color: #07050e;
     color: #ffffff;
     min-height: 100vh;
+    overflow-x: hidden;
   }
 }
 
@@ -35,69 +42,120 @@
 .purple-gradient-btn {
   background: linear-gradient(135deg, #a855f7 0%, #7e22ce 50%, #6b21a8 100%);
   box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
 }
 
 .purple-gradient-btn:hover {
   background: linear-gradient(135deg, #c084fc 0%, #9333ea 50%, #7e22ce 100%);
-  box-shadow: 0 6px 28px rgba(168, 85, 247, 0.6);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(168, 85, 247, 0.65);
+  transform: translateY(-2px);
 }
 
 .purple-outline-btn {
   background: rgba(18, 12, 33, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, border-color;
 }
 
 .purple-outline-btn:hover {
   border-color: rgba(168, 85, 247, 0.6);
   background: rgba(30, 20, 52, 0.95);
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .social-icon-btn {
   background: rgba(25, 18, 42, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
 }
 
 .social-icon-btn:hover {
   background: rgba(168, 85, 247, 0.25);
   border-color: rgba(192, 132, 252, 0.7);
   box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
-/* Animations */
+/* GPU-Accelerated Hardware Physics Animations */
 @keyframes floatSlow {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translate3d(0, 0px, 0);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translate3d(0, -8px, 0);
   }
 }
 
 .animate-float-slow {
-  animation: floatSlow 4s ease-in-out infinite;
+  animation: floatSlow 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes floatGentleAlt {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+.animate-float-gentle-alt {
+  animation: floatGentleAlt 5s ease-in-out infinite 1.2s;
+  will-change: transform;
+}
+
+@keyframes sphereFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.5));
+  }
+  50% {
+    transform: translate3d(0, -7px, 0) scale(1.02);
+    filter: drop-shadow(0 0 26px rgba(192, 132, 252, 0.8));
+  }
+}
+
+.animate-sphere-float {
+  animation: sphereFloat 5.5s ease-in-out infinite;
+  will-change: transform, filter;
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
+    opacity: 0.55;
+    transform: scale3d(1, 1, 1);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.05);
+    opacity: 0.95;
+    transform: scale3d(1.04, 1.04, 1);
   }
 }
 
 .animate-pulse-glow {
-  animation: pulseGlow 5s ease-in-out infinite;
+  animation: pulseGlow 6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Subtle Shimmer for interactive badges */
+@keyframes shimmerPass {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.03) 100%);
+  background-size: 200% 100%;
+  animation: shimmerPass 4s infinite linear;
 }
 
 /* Custom scrollbar */

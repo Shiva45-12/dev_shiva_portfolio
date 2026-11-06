@@ -15,6 +15,7 @@ import {
   SiPostman,
 } from 'react-icons/si';
 import { TbBrandVscode } from 'react-icons/tb';
+import Reveal from './Reveal';
 
 export default function Skills() {
   const skills = [
@@ -142,8 +143,7 @@ export default function Skills() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col items-start gap-3 sm:gap-4 mb-10 sm:mb-14">
-          
+        <Reveal animation="fade-up" className="flex flex-col items-start gap-3 sm:gap-4 mb-10 sm:mb-14">
           {/* Pill Tag */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100/80 border border-purple-200/90 shadow-sm">
             <span className="w-2.5 h-2.5 rounded-full bg-purple-600 shadow-[0_0_8px_rgba(147,51,234,0.6)]"></span>
@@ -156,46 +156,48 @@ export default function Skills() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0d0726] tracking-tight">
             Technologies I Work With
           </h2>
-
-        </div>
+        </Reveal>
 
         {/* Skills Cards Grid: 5 cols on lg, 3 on sm/md, 2 on mobile */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-5">
-          {skills.map((skill) => {
+          {skills.map((skill, index) => {
             const Icon = skill.icon;
             return (
-              <div
+              <Reveal
                 key={skill.name}
-                className="group relative bg-white/95 rounded-2xl p-4 sm:p-6 shadow-[0_10px_25px_rgba(15,10,35,0.04)] hover:shadow-[0_16px_35px_rgba(147,51,234,0.16)] border border-purple-100/70 hover:border-purple-300 transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center justify-center gap-3 sm:gap-4 min-h-[120px] sm:min-h-[140px] cursor-pointer"
+                animation="zoom-in"
+                delay={Math.min(index * 40, 500)}
+                duration={600}
               >
-                {/* Ambient Soft Glow on Hover */}
-                <div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"
-                  style={{ backgroundColor: skill.bgGlow }}
-                ></div>
+                <div className="group relative bg-white/95 rounded-2xl p-4 sm:p-6 shadow-[0_10px_25px_rgba(15,10,35,0.04)] hover:shadow-[0_16px_35px_rgba(147,51,234,0.18)] border border-purple-100/70 hover:border-purple-300 transition-all duration-300 hover:-translate-y-2 flex flex-col items-center justify-center gap-3 sm:gap-4 min-h-[120px] sm:min-h-[140px] cursor-pointer">
+                  {/* Ambient Soft Glow on Hover */}
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-xl"
+                    style={{ backgroundColor: skill.bgGlow }}
+                  ></div>
 
-                {/* Tech Icon Container */}
-                <div className="h-10 sm:h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  {skill.customSvg ? (
-                    <skill.customSvg />
-                  ) : skill.isCustomBox ? (
-                    <div
-                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center font-bold text-sm sm:text-base shadow-sm"
-                      style={{ backgroundColor: skill.boxBg, color: skill.boxTextColor }}
-                    >
-                      {skill.name === 'JavaScript' ? 'JS' : 'TS'}
-                    </div>
-                  ) : (
-                    <Icon className="w-9 h-9 sm:w-11 sm:h-11" style={{ color: skill.color }} />
-                  )}
+                  {/* Tech Icon Container */}
+                  <div className="h-10 sm:h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-115">
+                    {skill.customSvg ? (
+                      <skill.customSvg />
+                    ) : skill.isCustomBox ? (
+                      <div
+                        className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg flex items-center justify-center font-bold text-sm sm:text-base shadow-sm transition-transform duration-300 group-hover:rotate-3"
+                        style={{ backgroundColor: skill.boxBg, color: skill.boxTextColor }}
+                      >
+                        {skill.name === 'JavaScript' ? 'JS' : 'TS'}
+                      </div>
+                    ) : (
+                      <Icon className="w-9 h-9 sm:w-11 sm:h-11" style={{ color: skill.color }} />
+                    )}
+                  </div>
+
+                  {/* Skill Name */}
+                  <span className="text-xs sm:text-sm font-bold text-gray-800 tracking-tight text-center group-hover:text-purple-900 transition-colors">
+                    {skill.name}
+                  </span>
                 </div>
-
-                {/* Skill Name */}
-                <span className="text-xs sm:text-sm font-bold text-gray-800 tracking-tight text-center">
-                  {skill.name}
-                </span>
-
-              </div>
+              </Reveal>
             );
           })}
         </div>
